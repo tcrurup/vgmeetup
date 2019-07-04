@@ -1,6 +1,6 @@
 require_relative './config/environment'
 
-if ActiveRecord::Migration.needs_migration?
+if ActiveRecord::Base.connection.migration_context.needs_migration?
   raise 'Migrations are pending, run rake db:migrate'
 end
 
