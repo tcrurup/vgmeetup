@@ -9,7 +9,7 @@ class UserController < ApplicationController
   end
 
   post '/user/sign_up' do
-    binding.pry
+    user = User.create(params[:user])
   end
 
 end
