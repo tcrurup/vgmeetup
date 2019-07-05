@@ -12,6 +12,20 @@ class ApplicationController < Sinatra::Base
     "Hello World!"
   end
 
+  get '/login' do
+    erb :login
+  end
+
+  post '/login' do
+    login(params)
+    erb :'users/homepage'
+  end
+
+  get '/logout' do
+    logout
+    redirect'/login'
+  end
+
   helpers do
 
     def current_user
