@@ -12,4 +12,14 @@ class ApplicationController < Sinatra::Base
     "Hello World!"
   end
 
+  helpers do
+
+    def login(params)
+      user = User.find_by(username: params[:username])
+      if !!user && user.authenticate(params[:password]){
+        session[:email] = user.email
+      }
+    end
+  end
+
 end
