@@ -1,21 +1,23 @@
 <div class='central_container'>
+
   <h2>VG Meetup</h2>
   <h4>New member signup</h4>
+
   <form action='/sign_up' action='post'>
-    <label for='username'>Username: </label>
-    <input type='text' name='username' required>
+    <label for='user[username]'>Username: </label>
+    <input type='text' name='user[username]' required>
     <br><br>
-    <label for='username'>Password: </label>
-    <input type='password' name='password'required>
+    <label for='user[password]'>Password: </label>
+    <input type='password' name='user[password]'required>
     <br><br>
-    <label for='firstname'>First Name: </label>
-    <input type='text' name='firstname'required>
+    <label for='user[firstname]'>First Name: </label>
+    <input type='text' name='user[firstname]'required>
     <br><br>
-    <label for='lastname'>Last Name: </label>
-    <input type='text' name='lastname'required>
+    <label for='user[lastname]'>Last Name: </label>
+    <input type='text' name='user[lastname]'required>
     <br><br>
-    <label for='email'>Password: </label>
-    <input type='email' name='email'required>
+    <label for='user[email]'>Email: </label>
+    <input type='email' name='user[email]'required>
     <br><br>
 
     <input type='submit' value='Sign Up'>
