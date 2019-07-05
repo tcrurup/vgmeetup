@@ -2,8 +2,12 @@
 <table>
   <tr>
     <th>Title</th>
+    <th>Release Year</th>
   </tr>
   <% Game.all.each do |game| %>
-
+    <tr>
+      <td><%= game.title %></td>
+      <td><%= game.release_year %></td>
+    </tr>
   <% end %>
 </table>

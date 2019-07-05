@@ -3,11 +3,11 @@ user2 = {username: 'capplen', firstname: "cody", lastname: "applen", email: "cod
 user3 = {username: 'nkhan', firstname: "nazif", lastname: "khan", email: "nazif.khan@gmail.com", password: 'listen'}
 user4 = {username: 'nlegrand', firstname: "nathan", lastname: "legrand", email: "nathan.legrand@gmail.com", password: 'minime'}
 
-game1 = {name: 'Final Fantasy VII', release_year: 1997}
-game2 = {name: 'Banjo Kazooie', release_year: 1998}
-game3 = {name: 'Mass Effect 2', release_year: 2010}
-game4 = {name: 'Left For Dead 2', release_year: 2009}
-game5 = {name: 'LA Noire', release_year: 2011}
+game1 = {title: 'Final Fantasy VII', release_year: 1997}
+game2 = {title: 'Banjo Kazooie', release_year: 1998}
+game3 = {title: 'Mass Effect 2', release_year: 2010}
+game4 = {title: 'Left For Dead 2', release_year: 2009}
+game5 = {title: 'LA Noire', release_year: 2011}
 
 
 

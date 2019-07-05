@@ -11,7 +11,7 @@ class GamesController < ApplicationController
 
   #-----Read-----
 
-  get '/games/index' do
+  get '/games' do
     erb :"games/index"
   end
 
