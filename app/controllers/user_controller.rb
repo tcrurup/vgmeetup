@@ -10,4 +10,10 @@ class UserController < ApplicationController
     user = User.create(params[:user])
   end
 
+  #-----Read-----
+
+  get '/user/homepage' do
+    erb :'users/homepage'
+  end
+
 end

@@ -13,12 +13,16 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/login' do
-    erb :login
+    if logged_in?
+      redirect '/user/homepage'
+    else
+      erb :login
+    end
   end
 
   post '/login' do
     login(params)
-    erb :'users/homepage'
+    redirect '/user/homepage'
   end
 
   get '/logout' do
