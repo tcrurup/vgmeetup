@@ -20,4 +20,17 @@ class GamesController < ApplicationController
     erb :"games/show"
   end
 
+  #-----Update-----
+
+  get '/games/:slug/edit' do
+    @game = Game.find_by_slug(params[:slug])
+    erb :"games/edit"
+  end
+
+  patch '/games/:slug' do
+    game = Game.find_by_slug(params[:slug])
+    game.update(params[:game])
+    redirect "/games/#{game.slug}"
+  end
+
 end
