@@ -3,7 +3,7 @@ class UserController < ApplicationController
   #-----Create-----
 
   get '/user/sign_up' do
-    erb :'users/sign_up'
+    erb :'user/sign_up'
   end
 
   post '/user/sign_up' do
@@ -13,7 +13,7 @@ class UserController < ApplicationController
   #-----Read-----
 
   get '/user/homepage' do
-    erb :'users/homepage'
+    erb :'user/homepage'
   end
 
 end

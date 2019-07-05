@@ -21,8 +21,11 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-    login(params)
-    redirect '/user/homepage'
+    if login(params)
+      redirect '/user/homepage'
+    else
+      redirect '/login'
+    end
   end
 
   get '/logout' do
