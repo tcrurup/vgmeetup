@@ -1,7 +1,7 @@
 class UserController < ApplicationController
 
-  get '/users' do
-    "hello world!"
-    #erb :'users/index'
+  get '/login' do
+    erb :'users/login'
   end
+
 end
