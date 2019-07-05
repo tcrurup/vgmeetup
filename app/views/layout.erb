@@ -5,7 +5,10 @@
     <link rel='stylesheet' type='text/css' href='/stylesheets/main.css'>
   </head>
   <header>
-    <%=logged_in?%>
+    <% if logged_in? %>
+      Hello <%= current_user.firstname %>
+      <a href='/logout'>log out</a>
+    <% end %>
   </header>
   <body>
 
