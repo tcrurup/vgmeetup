@@ -10,4 +10,9 @@
     <input type='submit' value='Sign In'>
   </form>
   <span class='subtext'>Not a member yet? <a href='/user/sign_up'>sign up</a></span>
+  <div id='flash_message'>
+    <% if flash.has?(:message) %>
+      <%= flash[:message] %>
+    <% end %>
+  </div>
 </div>

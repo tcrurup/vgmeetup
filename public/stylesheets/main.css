@@ -11,6 +11,10 @@ span.subtext{
   padding: 0 0 10px 0;
 }
 
+#flash_message {
+  color: red;
+}
+
 div.central_container {
   border-radius: 25px;
   background-color: white;

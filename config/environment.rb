@@ -1,6 +1,7 @@
 ENV['SINATRA_ENV'] ||= "development"
 
 require 'bundler'
+require 'rack-flash'
 Bundler.require
 
 #ActiveRecord::Base.establish_connection(

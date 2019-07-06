@@ -5,7 +5,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "agdq"
-
+    use Rack::Flash
   end
 
   get '/' do
@@ -24,6 +24,7 @@ class ApplicationController < Sinatra::Base
     if login(params)
       redirect '/user/homepage'
     else
+      flash[:message] = 'login unsuccessful please try again'
       redirect '/login'
     end
   end
