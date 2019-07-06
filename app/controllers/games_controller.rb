@@ -6,7 +6,8 @@ class GamesController < ApplicationController
   end
 
   post '/games' do
-    Game.create(params[:game])
+    game = Game.create(params[:game])
+    redirect "games/#{game.slug}"
   end
 
   #-----Read-----
@@ -31,6 +32,19 @@ class GamesController < ApplicationController
     game = Game.find_by_slug(params[:slug])
     game.update(params[:game])
     redirect "/games/#{game.slug}"
+  end
+
+  #-----Delete-----
+
+  get '/games/:slug/delete' do
+    @game = Game.find_by_slug(params[:slug])
+    erb :"games/delete"
+  end
+
+  delete '/games/:slug' do
+    game = Game.find_by_slug(params[:slug])
+    game.destroy
+    redirect '/games'
   end
 
 end
