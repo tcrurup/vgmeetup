@@ -12,7 +12,8 @@ class UserController < ApplicationController
 
   #-----Read-----
 
-  get '/user/homepage' do
+  get '/user/:slug' do
+    @user = User.find_by_slug(params[:slug])
     erb :'user/homepage'
   end
 
