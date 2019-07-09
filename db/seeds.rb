@@ -9,12 +9,6 @@ game3 = {title: 'Mass Effect 2', release_year: 2010}
 game4 = {title: 'Left For Dead 2', release_year: 2009}
 game5 = {title: 'LA Noire', release_year: 2011}
 
-genre_rpg = Genre.create(name: 'rpg')
-genre_story_rich = Genre.create(name: 'story rich')
-genre_turn_based = Genre.create(name: 'turn based')
-
-
-
 tony = User.create(user1)
 cody = User.create(user2)
 nazif = User.create(user3)
@@ -25,6 +19,12 @@ banjo = Game.create(game2)
 me2 = Game.create(game3)
 lfd2 = Game.create(game4)
 lanoire = Game.create(game5)
+
+genre_rpg = Genre.create(name: 'rpg')
+genre_story_rich = Genre.create(name: 'story rich')
+genre_turn_based = Genre.create(name: 'turn based')
+
+ffvii.add_array_of_genres([genre_rpg, genre_story_rich, genre_turn_based])
 
 tony.add_game_to_collection(ffvii)
 cody.add_game_to_collection(ffvii)

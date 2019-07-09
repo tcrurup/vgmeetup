@@ -39,6 +39,10 @@ span.subtext{
   padding: 0 0 10px 0;
 }
 
+span.tag{
+  background-color: blue;
+}
+
 table.vertical_list td{
   text-align: left;
 }

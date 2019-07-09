@@ -28,13 +28,18 @@
     <tr>
       <th>Title</th>
       <th>Release Year</th>
+      <th>Tags</th>
     </tr>
     <% @user.games.each do |game| %>
       <tr>
         <td><a href="/games/<%=game.slug%>"> <%=game.title%> </a></td>
         <td><%=game.release_year%></td>
+        <td>
+          <% game.genres.each do |genre| %>
+            <span class='tag'><%=genre.name%></span>
+          <% end %>
+        </td>
       </tr>
     <% end %>
-
   </table>
 </div>
