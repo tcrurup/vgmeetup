@@ -3,18 +3,6 @@ body{
   background-color: #5f9ea0;
 }
 
-span.subtext{
-  display: inline-block;
-  font-style: italic;
-  font-size: 80%;
-  font-weight: bold;
-  padding: 0 0 10px 0;
-}
-
-#flash_message {
-  color: red;
-}
-
 div.central_container {
   border-radius: 25px;
   background-color: white;
@@ -28,6 +16,39 @@ div.central_container {
   margin-right: auto;
   margin-top: 5vw;
   margin-bottom: 10vw;
+}
+
+div.page_section{
+  background-color: white;
+  border-radius: 20px;
+  display: inline-block;
+  padding: 0 1vw 1vh 1vw;
+  text-align: center;
+  width: auto;
+}
+
+header{
+  text-align: center;
+}
+
+span.subtext{
+  display: inline-block;
+  font-style: italic;
+  font-size: 80%;
+  font-weight: bold;
+  padding: 0 0 10px 0;
+}
+
+table.vertical_list td{
+  text-align: left;
+}
+
+table.vertical_list th{
+  text-align: right;
+}
+
+#flash_message {
+  color: red;
 }
 
 @media only screen and (min-width: 600px){
