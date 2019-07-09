@@ -1,4 +1,10 @@
 
+.column{
+  display: inline-block;
+  width: 32%;
+  height: 100%;
+}
+
 body{
   background-color: #5f9ea0;
 }
@@ -29,6 +35,12 @@ div.page_section{
 
 header{
   text-align: center;
+  height: 75px;
+  padding: 0 0 50px 0;
+}
+
+header div.column img{
+  height: 100%;
 }
 
 span.subtext{

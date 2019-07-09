@@ -1,13 +1,24 @@
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Release Year</th>
-  </tr>
-  <% Game.all.each do |game| %>
+<div class='page_section'>
+  <table>
+
     <tr>
-      <td><a href=<%="games/#{game.slug}"%>> <%= game.title %> </a></td>
-      <td><%= game.release_year %></td>
+      <th>Title</th>
+      <th>Genre Tags</th>
+      <th>Release Year</th>
     </tr>
-  <% end %>
-</table>
+
+    <% Game.all.each do |game| %>
+      <tr>
+        <td><a href=<%="games/#{game.slug}"%>> <%= game.title %> </a></td>
+        <td>
+          <% game.genres.each do |genre| %>
+            <span class='tag'><%=genre.name%></span>
+          <% end %>
+        </td>
+        <td><%= game.release_year %></td>
+      </tr>
+    <% end %>
+
+  </table>
+</div>
