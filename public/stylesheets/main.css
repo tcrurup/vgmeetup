@@ -40,7 +40,9 @@ span.subtext{
 }
 
 span.tag{
-  background-color: blue;
+  background-color: #ADD8E6;
+  font-weight: bold;
+  padding: .3vh .3vw;
 }
 
 table.vertical_list td{
