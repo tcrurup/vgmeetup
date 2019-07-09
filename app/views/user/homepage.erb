@@ -1,45 +1,56 @@
-<h1>homepage</h1>
-
-<div class='page_section'>
-  <h3>About Me</h3>
-  <table class='vertical_list'>
-      <tr>
-        <th>Username: </th>
-        <td><%=@user.username%></td>
-      </tr>
-      <tr>
-        <th>Email:</th>
-        <td><%=@user.email%></td>
-      </tr>
-      <tr>
-        <th>First Name:</th>
-        <td><%=@user.firstname.capitalize%></td>
-      </tr>
-      <tr>
-        <th>Last Name:</th>
-        <td><%=@user.lastname.capitalize%></td>
-      </tr>
-    </table>
+<div class='row'>
+  <h1><%=@user.username%></h1>
 </div>
 
-<div class='page_section'>
-  <h3>My Collection</h3>
-  <table>
-    <tr>
-      <th>Title</th>
-      <th>Release Year</th>
-      <th>Tags</th>
-    </tr>
-    <% @user.games.each do |game| %>
-      <tr>
-        <td><a href="/games/<%=game.slug%>"> <%=game.title%> </a></td>
-        <td><%=game.release_year%></td>
-        <td>
-          <% game.genres.each do |genre| %>
-            <span class='tag'><%=genre.name%></span>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </table>
-</div>
+<div class='flex-container-horizontal'>
+
+    <div class='page_section'>
+      <h3>About Me</h3>
+
+      <table class='vertical_list'>
+        <tr>
+          <th>Username: </th>
+          <td><%=@user.username%></td>
+        </tr>
+        <tr>
+          <th>Email:</th>
+          <td><%=@user.email%></td>
+        </tr>
+        <tr>
+          <th>First Name:</th>
+          <td><%=@user.firstname.capitalize%></td>
+        </tr>
+        <tr>
+          <th>Last Name:</th>
+          <td><%=@user.lastname.capitalize%></td>
+        </tr>
+
+      </table>
+    </div>
+
+    <div class='page_section'>
+      <h3>My Collection</h3>
+
+      <table>
+        <tr>
+          <th>Title</th>
+          <th>Release Year</th>
+          <th>Tags</th>
+        </tr>
+
+        <% #create a new table row for every instance of game that belongs to the user%>
+        <% @user.games.each do |game| %>
+          <tr>
+            <td><a href="/games/<%=game.slug%>"> <%=game.title%> </a></td>
+            <td><%=game.release_year%></td>
+            <td>
+              <% game.genres.each do |genre| %>
+                <span class='tag'><%=genre.name%></span>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+
+      </table>
+    </div>
+  </div>

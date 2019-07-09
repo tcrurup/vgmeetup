@@ -1,12 +1,43 @@
 
 .column{
   display: inline-block;
-  width: 32%;
+  width: auto;
+  height: 100%;
+  margin: 0 8px 0 0;
+  text-align: center;
+}
+
+.content{
+  width: 80%;
+  display: inline-block;
+}
+
+.flex-container-horizontal{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  height: 100%;
+}
+
+.flex-container-vertical{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.row{
+  display: block;
+  text-align: center;
   height: 100%;
 }
 
 body{
   background-color: #5f9ea0;
+  text-align: center;
+  width: 95%;
+  margin: auto;
 }
 
 div.central_container {
@@ -29,18 +60,30 @@ div.page_section{
   border-radius: 20px;
   display: inline-block;
   padding: 0 1vw 1vh 1vw;
+  margin: 1vh 1vw;
+  min-width: 280px;
   text-align: center;
   width: auto;
 }
 
-header{
-  text-align: center;
-  height: 75px;
-  padding: 0 0 50px 0;
+h1{
+  display: inline-block;
+  margin: 0;
 }
 
-header div.column img{
-  height: 100%;
+header{
+  text-align: center;
+  height: auto;
+  padding: 0 0 2vh 0;
+  border-bottom: 5px solid black;
+  min-width: 320px;
+  width 100%;
+}
+
+header img{
+  height: auto;
+  max-height: 100px;
+  width: auto;
 }
 
 span.subtext{
@@ -53,8 +96,14 @@ span.subtext{
 
 span.tag{
   background-color: #ADD8E6;
+  display: inline-block;
   font-weight: bold;
   padding: .3vh .3vw;
+  margin: .3vh 0;
+}
+
+table{
+  margin: auto;
 }
 
 table.vertical_list td{
@@ -69,8 +118,22 @@ table.vertical_list th{
   color: red;
 }
 
-@media only screen and (min-width: 600px){
+#options_bar{
 
+}
+
+#rotated_logo{
+  transform: rotate(45deg);
+  display: none;
+}
+
+@media only screen and (min-width: 525px){
+  #rotated_logo{
+    display: inline-block;
+  }
+}
+
+@media only screen and (min-width: 600px){
   div.central_container {
     width: 40vw;
   }

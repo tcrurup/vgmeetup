@@ -4,26 +4,37 @@
     <title>VG Meetup</title>
     <link rel='stylesheet' type='text/css' href='/stylesheets/main.css'>
   </head>
+
   <header>
-    <div class='column'>
-      <img src=https://png2.kisspng.com/sh/d1a74659441c63517a23c3b1cca51d90/L0KzQYm3U8E4N5xtj5H0aYP2gLBuTgN2eJZ3RdDyboTofrX2TfVvfJZ3jNNybn3ofsW0kCl0fJZyRdDucz3ofcbzggRwel5zfeU2Y3BxhMP2jPxmel5ohNt5YYL3g368gfFkaWY1TaJtOUO2RXACUcc0PmE8TKMAMkG1RoSBV8cxPWY7RuJ3Zx==/kisspng-super-nintendo-entertainment-system-nes-emulator-nes-controller-cliparts-5aaca5050d9335.9173607415212638770556.png>
+    <div class='flex-container-horizontal'>
+
+      <div class='column'>
+        <img src='https://png2.kisspng.com/sh/d1a74659441c63517a23c3b1cca51d90/L0KzQYm3U8E4N5xtj5H0aYP2gLBuTgN2eJZ3RdDyboTofrX2TfVvfJZ3jNNybn3ofsW0kCl0fJZyRdDucz3ofcbzggRwel5zfeU2Y3BxhMP2jPxmel5ohNt5YYL3g368gfFkaWY1TaJtOUO2RXACUcc0PmE8TKMAMkG1RoSBV8cxPWY7RuJ3Zx==/kisspng-super-nintendo-entertainment-system-nes-emulator-nes-controller-cliparts-5aaca5050d9335.9173607415212638770556.png'>
+      </div>
+
+      <div class='column'>
+        <h1>VG Meetup</h1><br>
+        <div id='options_bar'>
+          <% if logged_in? %>
+            Hello <%= current_user.firstname.capitalize %>  |
+            <a href = '/user/<%=current_user.slug%>'>hompage</a>  |
+            <a href = '/games'>games</a>
+            <br>
+            <a href='/logout'>log out</a>
+            <% end %>
+        </div>
+      </div>
+
+      <div class='column'>
+        <img id='rotated_logo' src='https://png2.kisspng.com/sh/d1a74659441c63517a23c3b1cca51d90/L0KzQYm3U8E4N5xtj5H0aYP2gLBuTgN2eJZ3RdDyboTofrX2TfVvfJZ3jNNybn3ofsW0kCl0fJZyRdDucz3ofcbzggRwel5zfeU2Y3BxhMP2jPxmel5ohNt5YYL3g368gfFkaWY1TaJtOUO2RXACUcc0PmE8TKMAMkG1RoSBV8cxPWY7RuJ3Zx==/kisspng-super-nintendo-entertainment-system-nes-emulator-nes-controller-cliparts-5aaca5050d9335.9173607415212638770556.png'>
+      </div>
     </div>
-    <div class='column'>
-      <h2>VG Meetup</h2>
-      <% if logged_in? %>
-        Hello <%= current_user.firstname.capitalize %>  |
-        <a href = '/user/<%=current_user.slug%>'>hompage</a>  |
-        <a href = '/games'>games</a>  |
-        <a href='/logout'>log out</a>
-      <% end %>
-    </div>
-    <div class='column'>
-      <img style='transform: rotate(45deg);' src=https://png2.kisspng.com/sh/d1a74659441c63517a23c3b1cca51d90/L0KzQYm3U8E4N5xtj5H0aYP2gLBuTgN2eJZ3RdDyboTofrX2TfVvfJZ3jNNybn3ofsW0kCl0fJZyRdDucz3ofcbzggRwel5zfeU2Y3BxhMP2jPxmel5ohNt5YYL3g368gfFkaWY1TaJtOUO2RXACUcc0PmE8TKMAMkG1RoSBV8cxPWY7RuJ3Zx==/kisspng-super-nintendo-entertainment-system-nes-emulator-nes-controller-cliparts-5aaca5050d9335.9173607415212638770556.png>
-    </div>
+
   </header>
+
   <body>
-
-    <%= yield %>
-
+    <div class='content'>
+      <%= yield %>
+    </div>
   </body>
 </html>
