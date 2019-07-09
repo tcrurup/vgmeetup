@@ -6,7 +6,7 @@
   </head>
   <header>
     <% if logged_in? %>
-      Hello <%= current_user.firstname %>
+      Hello <%= current_user.firstname.capitalize %>
       <a href='/logout'>log out</a>
     <% end %>
   </header>
