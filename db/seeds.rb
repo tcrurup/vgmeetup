@@ -9,6 +9,10 @@ game3 = {title: 'Mass Effect 2', release_year: 2010}
 game4 = {title: 'Left For Dead 2', release_year: 2009}
 game5 = {title: 'LA Noire', release_year: 2011}
 
+genre_rpg = Genre.create(name: 'rpg')
+genre_story_rich = Genre.create(name: 'story rich')
+genre_turn_based = Genre.create(name: 'turn based')
+
 
 
 tony = User.create(user1)
