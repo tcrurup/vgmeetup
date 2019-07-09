@@ -22,7 +22,7 @@ class ApplicationController < Sinatra::Base
 
   post '/login' do
     if login(params)
-      redirect '/user/homepage'
+      redirect "/user/#{current_user.slug}"
     else
       flash[:message] = 'login unsuccessful please try again'
       redirect '/login'

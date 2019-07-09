@@ -22,4 +22,5 @@ me2 = Game.create(game3)
 lfd2 = Game.create(game4)
 lanoire = Game.create(game5)
 
-#tony.add_game_to_collection(ffvii)
+tony.add_game_to_collection(ffvii)
+cody.add_game_to_collection(ffvii)

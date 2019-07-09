@@ -24,4 +24,17 @@
 
 <div class='page_section'>
   <h3>My Collection</h3>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Release Year</th>
+    </tr>
+    <% @user.games.each do |game| %>
+      <tr>
+        <td><a href="/games/<%=game.slug%>"> <%=game.title%> </a></td>
+        <td><%=game.release_year%></td>
+      </tr>
+    <% end %>
+
+  </table>
 </div>
