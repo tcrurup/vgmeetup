@@ -11,12 +11,15 @@ game5 = {title: 'LA Noire', release_year: 2011}
 
 
 
-User.create(user1)
-User.create(user2)
-User.create(user3)
-User.create(user4)
-Game.create(game1)
-Game.create(game2)
-Game.create(game3)
-Game.create(game4)
-Game.create(game5)
+tony = User.create(user1)
+cody = User.create(user2)
+nazif = User.create(user3)
+nathan = User.create(user4)
+
+ffvii = Game.create(game1)
+banjo = Game.create(game2)
+me2 = Game.create(game3)
+lfd2 = Game.create(game4)
+lanoire = Game.create(game5)
+
+#tony.add_game_to_collection(ffvii)
