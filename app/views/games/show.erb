@@ -1,12 +1,39 @@
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Release Year</th>
-  </tr>
-  <tr>
-    <td><%= @game.title %></td>
-    <td><%= @game.release_year %></td>
-  </tr>
-</table>
+<div class = 'flex-container-horizontal'>
+  <div class='page_section'>
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Release Year</th>
+        <th>Genres</th>
+      </tr>
+      <tr>
+        <td><%= @game.title %></td>
+        <td><%= @game.release_year %></td>
+        <td>
+          <% @game.genres.each do |genre| %>
+            <span class='tag'><%=genre.name%></span>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class='page_section'>
+    Other members who own <%=@game.title%>
+    <table>
+      <tr>
+        <th>User</th>
+        <th>Email</th>
+      </tr>
+      <% @game.users.each do |user| %>
+      <tr>
+        <td><a href='/user/<%=user.slug%>'><%=user.username%></a></td>
+        <td><%=user.email%></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
 <a href =<%="/games/#{@game.slug}/edit"%>> Edit </a>
 <a href =<%="/games/#{@game.slug}/delete"%>> Delete </a>
