@@ -47,7 +47,7 @@
         </tr>
 
         <% #create a new table row for every instance of game that belongs to the user%>
-        <% @user.games.each do |game| %>
+        <% @user.games.sort{ |a,b| a.title <=> b.title }.each do |game| %>
           <tr>
             <td><a href="/games/<%=game.slug%>"> <%=game.title%> </a></td>
             <td><%=game.release_year%></td>
@@ -56,6 +56,13 @@
                 <span class='tag'><%=genre.name%></span>
               <% end %>
             </td>
+            <%if @user == current_user %>
+              <td>
+                <form class='inline_button' action='/user/remove_game/<%=game.slug%>' method='post'>
+                  <input type='submit' value='Remove'>
+                </form>
+              </td>
+            <% end %>
           </tr>
         <% end %>
 
