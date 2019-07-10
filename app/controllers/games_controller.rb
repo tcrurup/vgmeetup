@@ -7,6 +7,10 @@ class GamesController < ApplicationController
 
   post '/games' do
     game = Game.create(params[:game])
+    if !params[:genre][:name].empty?
+      new_genre = Genre.create(params[:genre])
+      game.genres << new_genre
+    end
     redirect "games/#{game.slug}"
   end
 
