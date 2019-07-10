@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2019_07_10_203542) do
     t.string "content"
     t.integer "board_id"
     t.string "board_type"
+    t.integer "user_id"
   end
 
   create_table "user_games", force: :cascade do |t|

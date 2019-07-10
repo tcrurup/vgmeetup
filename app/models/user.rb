@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :user_games
   has_many :games, through: :user_games
+  has_many :posts
   has_one :personal_board
 
   after_initialize do |user|
@@ -17,13 +18,12 @@ class User < ActiveRecord::Base
   end
 
 
-
   def owns_game?(game)
     self.games.include?(game)
   end
 
   def post_to_other_users_board(content, other_user)
-    other_user.personal_board.new_post(content)
+    other_user.personal_board.new_post(content, self)
   end
 
   def remove_game_from_collection(game)
