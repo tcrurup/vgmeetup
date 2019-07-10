@@ -1,5 +1,9 @@
 <div class='page_section'>
   <span class ='section_title'>
-    Post to <%= @recipient.username %>'s board'
+    Post to <%= @recipient.username %>'s board
   </span>
+  <form action='/posts/<%= @recipient.slug %>' method='post'>
+    <textarea name='post_content'></textarea>
+    <input type='submit' value='Post'>
+  </form>
 </div>

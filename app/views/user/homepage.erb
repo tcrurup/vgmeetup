@@ -77,7 +77,7 @@
 
     <div class='post_board'>
       <span id='section_title'><%= @user.username %>'s board</span>
-      <form action=''>
+      <form action='/posts/new/<%= @user.slug %>'>
         <input type='submit' value='Write On Board'>
       </form>
       <% @user.personal_board.posts.each do |post| %>
