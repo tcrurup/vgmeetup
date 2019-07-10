@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_07_10_203542) do
     t.string "lastname"
     t.string "email"
     t.string "password_digest"
+    t.integer "board_id"
   end
 
 end
