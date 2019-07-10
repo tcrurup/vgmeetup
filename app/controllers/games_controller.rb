@@ -35,6 +35,10 @@ class GamesController < ApplicationController
   patch '/games/:slug' do
     game = Game.find_by_slug(params[:slug])
     game.update(params[:game])
+    if !params[:genre][:name].empty?
+      new_genre = Genre.create(params[:genre])
+      game.genres << new_genre
+    end
     redirect "/games/#{game.slug}"
   end
 
