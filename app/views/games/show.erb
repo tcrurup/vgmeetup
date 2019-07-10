@@ -24,6 +24,10 @@
     <form class='inline_button' action='/games/<%=@game.slug%>/delete'>
       <input type='submit' value='Delete'>
     </form>
+
+    <form class='inline_button' action='/user/add_game/<%=@game.slug%>' method='post'>
+      <input type='submit' value='Add To My Collection'>
+    </form>
   </div>
 
   <div class='page_section'>
@@ -43,6 +47,3 @@
     </table>
   </div>
 </div>
-
-<a href =<%="/games/#{@game.slug}/edit"%>> Edit </a>
-<a href =<%="/games/#{@game.slug}/delete"%>> Delete </a>
