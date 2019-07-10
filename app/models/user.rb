@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
     self.games << game
   end
 
+  def owns_game?(game)
+    self.games.include?(game)
+  end
+
   def slug
     slugify(self.username)
   end
