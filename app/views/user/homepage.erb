@@ -74,4 +74,12 @@
 
       </table>
     </div>
+
+    <div class='page_section'>
+      <% @user.personal_board.posts.each do |post| %>
+        <div class='post'>
+          <%= post.content %>
+        </div>
+      <% end %>
+    </div>
   </div>
