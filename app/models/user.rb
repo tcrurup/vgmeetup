@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
   has_many :games, through: :user_games
   has_one :personal_board
 
+  after_initialize do |user|
+    user.personal_board = PersonalBoard.create()
+  end
+
   include Slugifiable::InstanceMethods
   extend Slugifiable::ClassMethods
 
