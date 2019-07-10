@@ -17,11 +17,21 @@ class UserController < ApplicationController
     erb :'user/homepage'
   end
 
+  get '/users' do
+    erb :'user/index'
+  end
+
   #-----Update-----
 
   post '/user/add_game/:game_slug' do
     game = Game.find_by_slug(params[:game_slug])
     current_user.add_game_to_collection(game)
+    redirect "/games/#{game.slug}"
+  end
+
+  post '/user/remove_game/:game_slug' do
+    game = Game.find_by_slug(params[:game_slug])
+    current_user.remove_game_from_collection(game)
     redirect "/games/#{game.slug}"
   end
 

@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
     self.games.include?(game)
   end
 
+  def remove_game_from_collection(game)
+    self.games.delete(game)
+  end
+
   def slug
     slugify(self.username)
   end

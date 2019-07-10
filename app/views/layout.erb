@@ -16,10 +16,11 @@
         <h1>VG Meetup</h1><br>
         <div id='options_bar'>
           <% if logged_in? %>
-            Hello <%= current_user.firstname.capitalize %>  |
-            <a href = '/user/<%=current_user.slug%>'>hompage</a>  |
-            <a href = '/games'>games</a>
+            Hello <%= current_user.firstname.capitalize %>!
             <br>
+            <a href = '/user/<%=current_user.slug%>'>hompage</a>  |
+            <a href = '/games'>games</a>  |
+            <a href = '/users'>community</a>  |
             <a href='/logout'>log out</a>
             <% end %>
         </div>
