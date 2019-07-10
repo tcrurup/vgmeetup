@@ -6,6 +6,8 @@ class Game < ActiveRecord::Base
   has_many :game_genres
   has_many :genres, through: :game_genres
 
+  has_one :community_board
+
   include Slugifiable::InstanceMethods
   extend Slugifiable::ClassMethods
 

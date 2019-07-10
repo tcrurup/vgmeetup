@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_09_191901) do
+ActiveRecord::Schema.define(version: 2019_07_10_202818) do
+
+  create_table "community_boards", force: :cascade do |t|
+    t.integer "game_id"
+  end
 
   create_table "game_genres", force: :cascade do |t|
     t.integer "game_id"
@@ -24,6 +28,10 @@ ActiveRecord::Schema.define(version: 2019_07_09_191901) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "personal_boards", force: :cascade do |t|
+    t.integer "user_id"
   end
 
   create_table "user_games", force: :cascade do |t|
