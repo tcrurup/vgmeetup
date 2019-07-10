@@ -76,9 +76,18 @@
     </div>
 
     <div class='post_board'>
+      <span id='section_title'><%= @user.username %>'s board</span>
+      <form action=''>
+        <input type='submit' value='Write On Board'>
+      </form>
       <% @user.personal_board.posts.each do |post| %>
         <div class='post'>
-          <%= post.content %>
+          <div class='post_avatar'>
+            <%= post.user.username %>
+          </div>
+          <div class='post_message'>
+            <%= post.content %>
+          </div>
         </div>
       <% end %>
     </div>

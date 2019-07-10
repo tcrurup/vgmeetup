@@ -68,6 +68,13 @@ div.page_section{
   width: auto;
 }
 
+div.post_avatar{
+  border-right: 2px solid black;
+  display: inline-block;
+  text-align: center;
+  width: 8vw;
+}
+
 div.post_board{
   background-color: white;
   border-radius: 20px;
@@ -76,6 +83,11 @@ div.post_board{
   margin: 1vh 1vw;
   width: 75%;
   text-align: left;
+}
+
+div.post_message{
+  display: inline-block;
+  padding: 0px 10px;
 }
 
 form.inline_button{
@@ -141,6 +153,14 @@ table.vertical_list th{
 #rotated_logo{
   transform: rotate(45deg);
   display: none;
+}
+
+#section_title{
+  display: block;
+  font-weight: bold;
+  margin: auto;
+  text-align: center;
+
 }
 
 @media only screen and (min-width: 525px){
