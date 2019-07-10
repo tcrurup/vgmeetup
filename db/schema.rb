@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 2019_07_10_203542) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "title"
     t.string "content"
     t.integer "board_id"
     t.string "board_type"
@@ -52,7 +51,7 @@ ActiveRecord::Schema.define(version: 2019_07_10_203542) do
     t.string "lastname"
     t.string "email"
     t.string "password_digest"
-    t.integer "board_id"
+    t.integer "personal_board_id"
   end
 
 end
