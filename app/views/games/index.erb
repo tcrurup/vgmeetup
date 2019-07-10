@@ -13,7 +13,7 @@
       <th># Users Own<br>This Game</th>
     </tr>
 
-    <% Game.all.each do |game| %>
+    <% Game.all.sort{ |a,b| a.title <=> b.title }.each do |game| %>
       <tr>
         <td><a href=<%="games/#{game.slug}"%>> <%= game.title %> </a></td>
         <td>
