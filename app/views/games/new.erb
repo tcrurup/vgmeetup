@@ -12,6 +12,20 @@
 
   <br><br>
 
+  <% x=0 %>
+  <%Genre.all.sort{ |a,b| a.name<=>b.name }.each do |genre| %>
+    <label for='<%=genre.name%>'> <%=genre.name%> </label>
+    <input id='<%=genre.name%>' type='checkbox' name='game[genre_ids][]' value='<%=genre.id%>'>
+    <% x += 1 %>
+    <% if x >= 5 %>
+      <br>
+      <% x=0 %>
+    <% else %>
+      |
+    <% end %>
+
+  <% end %>
+
   <input type='submit' value='Add Game'>
 
 </form>
