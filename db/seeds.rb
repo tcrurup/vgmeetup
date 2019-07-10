@@ -38,6 +38,11 @@ me2.add_array_of_genres([genre_rpg, genre_action, genre_third_person_shooter])
 lfd2.add_array_of_genres([genre_cooperative, genre_survival_horror, genre_first_person_shooter])
 lanoire.add_array_of_genres([genre_action, genre_adventure, genre_third_person_shooter, genre_story_rich])
 
+tony.add_friend(cody)
+tony.add_friend(nathan)
+
+nathan.add_friend(cody)
+
 tony.add_game_to_collection(ffvii)
 cody.add_game_to_collection(ffvii)
 

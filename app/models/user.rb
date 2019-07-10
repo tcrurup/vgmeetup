@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :user_games
   has_many :games, through: :user_games
   has_many :posts
+  has_many :user_friends
+  has_many :friends, through: :user_friends
   has_one :personal_board
 
   after_initialize do |user|
@@ -13,10 +15,14 @@ class User < ActiveRecord::Base
   include Slugifiable::InstanceMethods
   extend Slugifiable::ClassMethods
 
+
+  def add_friend(user)
+    self.friends << Friend.find_or_create_by(user_id: user.id)
+  end
+
   def add_game_to_collection(game)
     self.games << game
   end
-
 
   def owns_game?(game)
     self.games.include?(game)
