@@ -10,6 +10,7 @@
       <th>Title</th>
       <th>Genre Tags</th>
       <th>Release Year</th>
+      <th># Users Own<br>This Game</th>
     </tr>
 
     <% Game.all.each do |game| %>
@@ -21,6 +22,7 @@
           <% end %>
         </td>
         <td><%= game.release_year %></td>
+        <td><%= game.num_of_owners %></td>
       </tr>
     <% end %>
 

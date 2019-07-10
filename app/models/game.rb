@@ -9,14 +9,18 @@ class Game < ActiveRecord::Base
   include Slugifiable::InstanceMethods
   extend Slugifiable::ClassMethods
 
-  def add_genre(genre)
-    self.genre << genre
-  end
-
   def add_array_of_genres(arr)
     arr.each do |genre|
       self.genres << genre
     end
+  end
+
+  def add_genre(genre)
+    self.genre << genre
+  end
+
+  def num_of_owners
+    self.users.count
   end
 
   def slug
