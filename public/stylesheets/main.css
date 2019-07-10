@@ -68,6 +68,10 @@ div.page_section{
   width: auto;
 }
 
+form.inline_button{
+  display: inline-block;
+}
+
 h1{
   display: inline-block;
   margin: 0;

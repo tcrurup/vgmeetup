@@ -16,6 +16,14 @@
         </td>
       </tr>
     </table>
+
+    <form class='inline_button' action='/games/<%=@game.slug%>/edit'>
+      <input type='submit' value='Edit'>
+    </form>
+
+    <form class='inline_button' action='/games/<%=@game.slug%>/delete'>
+      <input type='submit' value='Delete'>
+    </form>
   </div>
 
   <div class='page_section'>
