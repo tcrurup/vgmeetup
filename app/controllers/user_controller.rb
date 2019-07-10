@@ -1,7 +1,5 @@
 class UserController < ApplicationController
 
-  #-----Create-----
-
   get '/user/sign_up' do
     erb :'user/sign_up'
   end
@@ -10,7 +8,14 @@ class UserController < ApplicationController
     user = User.create(params[:user])
   end
 
-  #-----Read-----
+  get '/user/edit' do
+    erb :'user/edit'
+  end
+
+  patch '/user' do
+    current_user.update(params[:user])
+    redirect "/user/#{current_user.slug}"
+  end
 
   get '/user/:slug' do
     @user = User.find_by_slug(params[:slug])
@@ -20,8 +25,6 @@ class UserController < ApplicationController
   get '/users' do
     erb :'user/index'
   end
-
-  #-----Update-----
 
   post '/user/add_game/:game_slug' do
     game = Game.find_by_slug(params[:game_slug])

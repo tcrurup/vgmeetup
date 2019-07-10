@@ -26,6 +26,12 @@
         </tr>
 
       </table>
+
+      <% if @user == current_user %>
+        <a href='/user/edit'>Edit Details</a>
+        <a href='/user/edit'>Change Password</a>
+      <% end %>
+
     </div>
 
     <div class='page_section'>
