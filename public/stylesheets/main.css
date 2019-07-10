@@ -20,6 +20,7 @@
 }
 
 .flex-container-vertical{
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,9 +60,10 @@ div.page_section{
   background-color: white;
   border-radius: 20px;
   display: inline-block;
-  padding: 0 1vw 1vh 1vw;
+  padding: 2vh 2vw 2vh 2vw;
   margin: 1vh 1vw;
-  min-width: 280px;
+  min-width: 310px;
+  max-width: 600px;
   text-align: center;
   width: auto;
 }

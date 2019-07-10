@@ -29,7 +29,15 @@
     </div>
 
     <div class='page_section'>
-      <h3>My Collection</h3>
+
+      <h3>
+        <% if @user == current_user %>
+          My
+        <% else %>
+          <%= @user.username %>'s
+        <% end %>
+        collection
+      </h3>
 
       <table>
         <tr>
