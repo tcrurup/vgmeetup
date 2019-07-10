@@ -6,7 +6,6 @@ class CreateUsersTable < ActiveRecord::Migration[5.2]
         t.string :lastname
         t.string :email
         t.string :password_digest
-        t.integer :personal_board_id
       end
   end
 end

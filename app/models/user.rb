@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_one :personal_board
 
   after_initialize do |user|
-    user.personal_board = PersonalBoard.create()
+    user.personal_board ||= PersonalBoard.create()
   end
 
   include Slugifiable::InstanceMethods
@@ -16,8 +16,14 @@ class User < ActiveRecord::Base
     self.games << game
   end
 
+
+
   def owns_game?(game)
     self.games.include?(game)
+  end
+
+  def post_to_other_users_board(content, other_user)
+    other_user.personal_board.new_post(content)
   end
 
   def remove_game_from_collection(game)

@@ -40,3 +40,5 @@ lanoire.add_array_of_genres([genre_action, genre_adventure, genre_third_person_s
 
 tony.add_game_to_collection(ffvii)
 cody.add_game_to_collection(ffvii)
+
+cody.post_to_other_users_board("Hey what's going on man?", tony)

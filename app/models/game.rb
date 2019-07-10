@@ -9,7 +9,7 @@ class Game < ActiveRecord::Base
   has_one :community_board
 
   after_initialize do |game|
-    game.community_board = CommunityBoard.create()
+    game.community_board ||= CommunityBoard.create()
   end
 
   include Slugifiable::InstanceMethods
