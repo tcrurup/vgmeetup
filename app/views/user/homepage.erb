@@ -24,13 +24,15 @@
           <th>Last Name:</th>
           <td><%=@user.lastname.capitalize%></td>
         </tr>
-
       </table>
 
-
-      <form action='/user/add_friend/<%=@user.id%>' method='post'>
-        <input type='submit' value='Add As Friend'>
-      </form>
+      <% if current_user.has_pending_request_with?(@user) %>
+        Friend Request Pending
+      <% elsif !current_user.is_friends_with?(@user)%>
+        <form action='/user/add_friend/<%=@user.id%>' method='post'>
+          <input type='submit' value='Add As Friend'>
+        </form>
+      <% end %>
 
       <form action='/posts/new/<%= @user.slug %>'>
         <input type='submit' value='Write On Board'>

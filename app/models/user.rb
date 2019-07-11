@@ -24,6 +24,11 @@ class User < ActiveRecord::Base
     self.games << game
   end
 
+  def has_pending_request_with?(user)
+    #Returns true if user has frind in their list but not vice verca
+    !!self.friends.find_by(user_id: user.id) && !user.friends.find_by(user_id: self.id)
+  end
+
   def is_friends_with?(user)
     #Returns true if both users are found within eachothers friends list
     !!self.friends.find_by(user_id: user.id) && !!user.friends.find_by(user_id: self.id)
