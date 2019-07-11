@@ -1,7 +1,12 @@
 class UserController < ApplicationController
 
   get '/user/sign_up' do
-    erb :'user/sign_up'
+    if logged_in?
+      flash[:message] = 'You need to be logged out before you can sign up'
+      redirect "/user/#{current_user.slug}"
+    else
+      erb :'user/sign_up'
+    end
   end
 
   post '/user/sign_up' do
