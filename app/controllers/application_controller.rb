@@ -40,6 +40,11 @@ class ApplicationController < Sinatra::Base
       @current_user ||= User.find_by(email: session[:email]) if session[:email]
     end
 
+    def flash_and_redirect(message, redirect_address)
+      flash[:message]= message
+      redirect redirect_address
+    end
+
     def logged_in?
       !!current_user
     end

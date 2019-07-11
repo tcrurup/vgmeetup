@@ -11,11 +11,9 @@ class UserController < ApplicationController
 
   post '/user/sign_up' do
     if !!User.find_by(username: params[:user][:username])
-      flash[:message] = "That username is already taken"
-      redirect '/user/sign_up'
+      flash_and_redirect("That username is already taken", "/user/sign_up")
     elsif !!User.find_by(username: params[:user][:email])
-      flash[:message] = "That email is already in use"
-      redirect '/user/sign_up'
+      flash_and_redirect("That email is already in use", "/user/sign_up")
     else
       user = User.create(params[:user])
       redirect "/user/#{user.slug}"
