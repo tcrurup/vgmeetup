@@ -8,5 +8,5 @@ use Rack::MethodOverride
 use UserController
 use GamesController
 use PostController
-user GenresController
+use GenresController
 run ApplicationController

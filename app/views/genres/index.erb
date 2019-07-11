@@ -1,0 +1,7 @@
+<div class='page_section'>
+  <% Genre.all.sort{ |a,b| a.name <=> b.name}.each do |genre| %>
+    <form>
+      <input class='genre_tag' type='submit' value='<%=genre.name%>'>
+    </form>
+  <% end %>
+</div>
