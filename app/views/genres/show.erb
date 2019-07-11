@@ -1,1 +1,16 @@
-a
+<div class='page_section'>
+  <span class='section_title'>Others Games Tagged With <%=@genre.name%></span>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Release Year</th>
+      <th># Members Who Own</th>
+    </tr>
+  <% @genre.games.each do |game| %>
+    <tr>
+      <td><a href='/games/<%=game.slug%>'> <%=game.title%></td>
+      <td><%=game.release_year%></td>
+      <td><%=game.num_of_owners%></td>
+    </tr>
+  <% end %>
+</div>

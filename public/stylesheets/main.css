@@ -137,6 +137,8 @@ input.genre_tag{
 
 span.section_title{
   font-weight: bold;
+  padding-bottom: 30px;
+  display: inline-block;
 
 }
 
