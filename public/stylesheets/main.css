@@ -91,6 +91,7 @@ div.post_board{
   display: inline-block;
   margin: 1vh 1vw;
   min-width: 320px;
+  max-width: 75%;
   padding: 2vh 2vw 2vh 2vw;
   width: 90%;
   text-align: left;
