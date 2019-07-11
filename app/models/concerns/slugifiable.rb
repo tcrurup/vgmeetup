@@ -2,7 +2,7 @@ module Slugifiable
   module InstanceMethods
 
     def slugify (string)
-      string.downcase.split(" ").join("-")
+      string.gsub(/[:!@#$%^&*]/, "").downcase.split(" ").join("-")
     end
 
   end

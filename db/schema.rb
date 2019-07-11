@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_10_233730) do
+ActiveRecord::Schema.define(version: 2019_07_11_014654) do
 
   create_table "community_boards", force: :cascade do |t|
     t.integer "game_id"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2019_07_10_233730) do
     t.integer "board_id"
     t.string "board_type"
     t.integer "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_friends", force: :cascade do |t|
