@@ -25,6 +25,12 @@
         <%=reply.content%>
       </div>
       <div class='post_options'>
+        <% if current_user == reply.user %>
+          <form action='/posts/reply/<%=reply.slug%>' method='post'>
+            <input type='hidden' name='_method' value='DELETE'>
+            <input type='submit' value="Delete">
+          </form>
+        <% end %>
       </div>
     </div>
   <% end %>

@@ -60,4 +60,11 @@ class PostController < ApplicationController
     Post.find_by_slug(params[:slug]).destroy
   end
 
+  delete "/posts/reply/:slug" do
+    reply = Reply.find_by_slug(params[:slug])
+    parent_post = reply.post
+    reply.destroy
+    redirect "/posts/#{parent_post.slug}/show"
+  end
+
 end
