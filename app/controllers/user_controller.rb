@@ -14,14 +14,12 @@ class UserController < ApplicationController
   post '/user/sign_up' do
     if !!User.find_by(username: params[:user][:username])
       flash_and_redirect("That username is already taken", "/user/sign_up")
-    elsif !!User.find_by(username: params[:user][:email])
+    elsif !!User.find_by(email: params[:user][:email])
       flash_and_redirect("That email is already in use", "/user/sign_up")
     else
       user = User.create(params[:user])
-      binding.pry
       login(params[:user])
-      binding.pry
-      redirect "/user/#{user.slug}"
+      redirect "/games"
     end
   end
 
