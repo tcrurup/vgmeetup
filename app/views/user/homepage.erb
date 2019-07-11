@@ -84,8 +84,8 @@
         </tr>
         <% @user.friends.each do |friend| %>
           <tr>
-            <td><%=friend.username%></td>
-            <td></td>
+            <td><%= friend.username %></td>
+            <td><%= @user.num_games_in_common_with(friend) %></td>
           </tr>
         <% end %>
       </table>

@@ -24,6 +24,14 @@ class User < ActiveRecord::Base
     self.games << game
   end
 
+  def num_games_in_common_with(user)
+    x = 0;
+    self.games.each do |game|
+      x += 1 if user.games.include?(game)
+    end
+    x
+  end
+
   def owns_game?(game)
     self.games.include?(game)
   end
