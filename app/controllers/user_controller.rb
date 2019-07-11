@@ -18,6 +18,9 @@ class UserController < ApplicationController
       flash_and_redirect("That email is already in use", "/user/sign_up")
     else
       user = User.create(params[:user])
+      binding.pry
+      login(params[:user])
+      binding.pry
       redirect "/user/#{user.slug}"
     end
   end
