@@ -5,7 +5,7 @@
 <div class='flex-container-horizontal'>
 
     <div class='page_section'>
-      <h3>About Me</h3>
+      <span id='section_title'>About Me</span>
 
       <table class='vertical_list'>
         <tr>
@@ -26,6 +26,15 @@
         </tr>
 
       </table>
+
+
+      <form action='/user/add_friend/<%=@user.id%>' method='post'>
+        <input type='submit' value='Add As Friend'>
+      </form>
+
+      <form action='/posts/new/<%= @user.slug %>'>
+        <input type='submit' value='Write On Board'>
+      </form>
 
       <% if @user == current_user %>
         <a href='/user/edit'>Edit Details</a>
@@ -84,7 +93,10 @@
         </tr>
         <% @user.friends.each do |friend| %>
           <tr>
-            <td><%= friend.username %></td>
+            <td>
+              <%='(pending)' unless friend.is_friends_with?(@user)%>
+              <%= friend.username %>
+            </td>
             <td><%= @user.num_games_in_common_with(friend) %></td>
           </tr>
         <% end %>
@@ -93,9 +105,6 @@
 
     <div class='post_board'>
       <span id='section_title'><%= @user.username %>'s board</span>
-      <form action='/posts/new/<%= @user.slug %>'>
-        <input type='submit' value='Write On Board'>
-      </form>
       <% @user.personal_board.posts.each do |post| %>
         <div class='post'>
           <div class='post_avatar'>

@@ -114,6 +114,11 @@ header img{
   width: auto;
 }
 
+span.section_title{
+  font-weight: bold;
+
+}
+
 span.subtext{
   display: inline-block;
   font-style: italic;
@@ -159,8 +164,8 @@ table.vertical_list th{
   display: block;
   font-weight: bold;
   margin: auto;
+  padding-bottom: 10px;
   text-align: center;
-
 }
 
 @media only screen and (min-width: 525px){

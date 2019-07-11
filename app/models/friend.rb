@@ -15,4 +15,16 @@ class Friend < ActiveRecord::Base
     friend_account.username
   end
 
+  def is_friends_with?(user)
+    friend_account.is_friends_with?(user)
+  end
+
+  def friends
+    friend_account.friends
+  end
+
+  def slug
+    friend_account.slug
+  end
+
 end

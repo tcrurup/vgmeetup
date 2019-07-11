@@ -17,6 +17,12 @@ class UserController < ApplicationController
     redirect "/user/#{current_user.slug}"
   end
 
+  post '/user/add_friend/:user_id' do
+    friend = Friend.find_or_create_by(user_id: params[:user_id])
+    current_user.add_friend(friend.friend_account)
+    redirect "/user/#{friend.slug}"
+  end
+
   get '/user/:slug' do
     @user = User.find_by_slug(params[:slug])
     erb :'user/homepage'
