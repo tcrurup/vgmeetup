@@ -75,6 +75,22 @@
       </table>
     </div>
 
+    <div class='page_section'>
+      <span id='section_title'><%= @user.username %>'s friends</span>
+      <table>
+        <tr>
+          <th>Username</th>
+          <th># Games You<br>Have In Common</th>
+        </tr>
+        <% @user.friends.each do |friend| %>
+          <tr>
+            <td><%=friend.username%></td>
+            <td></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+
     <div class='post_board'>
       <span id='section_title'><%= @user.username %>'s board</span>
       <form action='/posts/new/<%= @user.slug %>'>
