@@ -68,11 +68,15 @@ div.page_section{
   width: auto;
 }
 
+div.post{
+    padding: 20px;
+}
+
 div.post_avatar{
   border-right: 2px solid black;
   display: inline-block;
   text-align: center;
-  width: 8vw;
+  width: 18%;
 }
 
 div.post_board{
@@ -86,8 +90,17 @@ div.post_board{
 }
 
 div.post_message{
+  width: 70%;
   display: inline-block;
-  padding: 0px 10px;
+}
+
+div.post_options{
+  width: 5%;
+  display: inline-block;
+}
+
+div.reply{
+ margin-left: 100px;
 }
 
 form.inline_button{

@@ -11,6 +11,7 @@ class Post < ActiveRecord::Base
   def add_reply(content, user)
     reply = Reply.create(content: content, user: user)
     reply.post = self
+    reply.save
     self.replies << reply
   end
 

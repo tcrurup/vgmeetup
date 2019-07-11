@@ -38,6 +38,17 @@ class PostController < ApplicationController
     redirect "/posts/#{post.slug}/show"
   end
 
+  get "/posts/:slug/reply" do
+    @post = Post.find_by_slug(params[:slug])
+    erb :'post/reply'
+  end
+
+  post "/posts/:slug/reply" do
+    post = Post.find_by_slug(params[:slug])
+    post.add_reply(params[:reply_content], current_user)
+    redirect "/posts/#{post.slug}/show"
+  end
+
   #-----Delete-----
 
   get "/posts/:slug/delete" do

@@ -8,9 +8,24 @@
       <%= @post.content %>
     </div>
     <div class='post_options'>
-      <% if current_user == @post.author %>
+
+      <% if current_user == @post.user %>
         <a href='/posts/<%=@post.slug%>/edit'>edit</a>
       <% end %>
+      <a href='/posts/<%=@post.slug%>/reply'>reply</a>
     </div>
   </div>
+
+  <% @post.replies.each do |reply| %>
+    <div class='reply'>
+      <div class='post_avatar'>
+        <%=reply.user.username%>
+      </div>
+      <div class='post_message'>
+        <%=reply.content%>
+      </div>
+      <div class='post_options'>
+      </div>
+    </div>
+  <% end %>
 </div>
