@@ -1,5 +1,11 @@
 <div class='central_container'>
 
+  <div id='flash_message'>
+    <% if flash.has?(:message) %>
+      <%= flash[:message] %>
+    <% end %>
+  </div>
+
   <h2>VG Meetup</h2>
   <h4>New member signup</h4>
 
