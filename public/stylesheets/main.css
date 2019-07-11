@@ -115,9 +115,13 @@ div.post_options input{
 }
 
 div.reply{
-  color: #4B0082;  
+  color: #4B0082;
   margin-left: 5vw;
   font-size: 80%;
+}
+
+form.genre_tag{
+    display: inline-block;
 }
 
 form.inline_button{

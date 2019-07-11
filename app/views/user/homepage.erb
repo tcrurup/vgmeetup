@@ -101,7 +101,9 @@
             <td><%=game.release_year%></td>
             <td>
               <% game.genres.each do |genre| %>
-                <span class='tag'><%=genre.name%></span>
+                <form class='genre_tag' action='/genres/<%=genre.slug%>'>
+                  <input class='genre_tag' type='submit' value='<%=genre.name%>'>
+                </form>
               <% end %>
             </td>
             <%if @user == current_user %>
