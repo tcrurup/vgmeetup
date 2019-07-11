@@ -1,5 +1,7 @@
 class UserController < ApplicationController
 
+  #-----CREATE-----
+
   get '/user/sign_up' do
     if logged_in?
       flash[:message] = 'You need to be logged out before you can sign up'
@@ -20,6 +22,21 @@ class UserController < ApplicationController
     end
   end
 
+  #-----READ-----
+
+  get '/user/:slug' do
+    ensure_logged_in
+    @user = User.find_by_slug(params[:slug])
+    erb :'user/homepage'
+  end
+
+  get '/users' do
+    ensure_logged_in
+    erb :'user/index'
+  end
+
+  #-----UPDATE-----
+
   get '/user/edit' do
     ensure_logged_in
     erb :'user/edit'
@@ -36,17 +53,6 @@ class UserController < ApplicationController
     redirect "/user/#{friend.slug}"
   end
 
-  get '/user/:slug' do
-    ensure_logged_in
-    @user = User.find_by_slug(params[:slug])
-    erb :'user/homepage'
-  end
-
-  get '/users' do
-    ensure_logged_in
-    erb :'user/index'
-  end
-
   post '/user/add_game/:game_slug' do
     game = Game.find_by_slug(params[:game_slug])
     current_user.add_game_to_collection(game)
@@ -58,6 +64,8 @@ class UserController < ApplicationController
     current_user.remove_game_from_collection(game)
     redirect "/user/#{current_user.slug}"
   end
+
+  #-----DELETE-----
 
   get '/user/:slug/delete' do
     @user = User.find_by_slug(params[:slug])
