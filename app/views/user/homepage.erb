@@ -2,8 +2,15 @@
   <h1><%=@user.username%></h1>
 </div>
 
+<div id='flash_message'>
+  <% if flash.has?(:message) %>
+    <%= flash[:message] %>
+  <% end %>
+</div>
+
 <div class='flex-container-horizontal'>
 
+<% #----------------------------ABOUT ME----------------------------------# %>
     <div class='page_section'>
       <span id='section_title'>About Me</span>
 
@@ -44,6 +51,8 @@
       <% end %>
 
     </div>
+
+<% #----------------------------GAME COLLECTION----------------------------------# %>
 
     <div class='page_section'>
 

@@ -149,6 +149,7 @@ table.vertical_list th{
 
 #flash_message {
   color: red;
+  display: block;
 }
 
 #options_bar{

@@ -4,7 +4,12 @@ class PostController < ApplicationController
 
   get "/posts/new/:slug" do
     @recipient = User.find_by_slug(params[:slug])
-    erb :"post/new"
+    if current_user.is_friends_with?(@recipient)
+      erb :"post/new"
+    else
+      flash[:message] = "You must be friends to post on #{@recipient.username}'s board"
+      redirect "/user/#{@recipient.slug}"
+    end
   end
 
   post "/posts/:slug" do
