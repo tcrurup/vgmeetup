@@ -12,16 +12,24 @@ class PostController < ApplicationController
     end
   end
 
-  post "/posts/:slug" do
-    recipient = User.find_by_slug(params[:slug])
+  post "/posts/:user_slug" do
+    recipient = User.find_by_slug(params[:user_slug])
     current_user.post_to_other_users_board(params[:post_content], recipient)
     redirect "/user/#{recipient.slug}"
   end
 
   #-----Edit-----
 
-  get "/posts/" do
+  get "/posts/:slug/edit" do
+    @post = Post.find_by_slug(params[:slug])
+    erb :'post/edit'
+  end
 
+  patch "/posts/:slug" do
+    post = Post.find_by_slug(params[:slug])
+    post.update(params[:post])
+
+    redirect
   end
 
 end
