@@ -59,4 +59,15 @@ class UserController < ApplicationController
     redirect "/user/#{current_user.slug}"
   end
 
+  get '/user/:slug/delete' do
+    @user = User.find_by_slug(params[:slug])
+    erb :'user/delete'
+  end
+
+  delete '/user/:slug' do
+    Friend.find_by_slug(params[:slug]).destroy
+    User.find_by_slug(params[:slug]).destroy
+    flash_and_redirect("Your account has been deleted", "/login")
+  end
+
 end

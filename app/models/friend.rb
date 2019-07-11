@@ -3,6 +3,9 @@ class Friend < ActiveRecord::Base
   has_many :user_friends
   has_many :users, through: :user_friends
 
+  include Slugifiable::InstanceMethods
+  extend Slugifiable::ClassMethods
+
   def friend_account
     @friend_account ||= User.find(self.user_id)
   end
@@ -26,5 +29,6 @@ class Friend < ActiveRecord::Base
   def slug
     friend_account.slug
   end
+  
 
 end
