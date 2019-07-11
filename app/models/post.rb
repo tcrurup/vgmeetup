@@ -15,6 +15,16 @@ class Post < ActiveRecord::Base
     self.replies << reply
   end
 
+  def redirection_string
+    case self.board_type
+    when "PersonalBoard"
+      "/user/#{self.board.user.slug}"
+    when "CommunityBoard"
+      "/games/#{self.board.game.slug}"
+    end
+  end
+
+
   def slug
     slugify(self.user.username + self.created_at.to_s + self.id.to_s)
   end

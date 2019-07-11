@@ -29,6 +29,6 @@ class Friend < ActiveRecord::Base
   def slug
     friend_account.slug
   end
-  
+
 
 end

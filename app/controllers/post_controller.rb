@@ -14,8 +14,8 @@ class PostController < ApplicationController
 
   post "/posts/:user_slug" do
     recipient = User.find_by_slug(params[:user_slug])
-    current_user.post_to_other_users_board(params[:post_content], recipient)
-    redirect "/user/#{recipient.slug}"
+    post = current_user.post_to_other_users_board(params[:post_content], recipient)
+    redirect post.redirection_string
   end
 
   #-----Read-----

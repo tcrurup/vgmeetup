@@ -8,6 +8,7 @@ class PersonalBoard < ActiveRecord::Base
     post.user = author
     post.save
     self.posts << post
+    post
   end
 
 end
