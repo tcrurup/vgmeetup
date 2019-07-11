@@ -38,4 +38,15 @@ class PostController < ApplicationController
     redirect "/posts/#{post.slug}/show"
   end
 
+  #-----Delete-----
+
+  get "/posts/:slug/delete" do
+    @post = Post.find_by_slug(params[:slug])
+    erb :'post/delete'
+  end
+
+  delete "/posts/:slug" do
+    Post.find_by_slug(params[:slug]).destroy
+  end
+
 end

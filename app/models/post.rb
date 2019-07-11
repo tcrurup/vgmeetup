@@ -9,9 +9,4 @@ class Post < ActiveRecord::Base
   def slug
     slugify(self.user.username + self.created_at.to_s + self.id.to_s)
   end
-
-  def author
-    self.user
-  end
-
 end

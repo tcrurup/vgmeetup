@@ -1,0 +1,12 @@
+<div class='page_section'>
+  <span class ='section_title'>
+    Delete Comment?
+  </span>
+  <form action='/posts/<%= @post.slug %>' method='post'>
+    <input type='hidden' name='_method' value='DELETE'>
+
+    <p> <%=@post.content%> </p>
+
+    <input type='submit' value='Delete'>
+  </form>
+</div>

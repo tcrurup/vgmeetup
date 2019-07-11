@@ -128,9 +128,12 @@
           <div class='post_message'>
             <%= post.content %>
           </div>
-          <div class='post_options'>
-            <a href='/posts/<%=post.slug%>/edit'>edit</a>
-          </div>
+          <% if current_user == post.user %>
+            <div class='post_options'>
+              <a href='/posts/<%=post.slug%>/edit'>edit</a>
+              <a href='/posts/<%=post.slug%>/delete'>delete</a>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>
