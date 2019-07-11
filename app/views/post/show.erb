@@ -1,5 +1,5 @@
 
-<div class='post_board'>
+<div class='post_contents'>
   <div class='post'>
     <div class='post_avatar'>
       <%= @post.user.username %>
@@ -12,7 +12,9 @@
       <% if current_user == @post.user %>
         <a href='/posts/<%=@post.slug%>/edit'>edit</a>
       <% end %>
-      <a href='/posts/<%=@post.slug%>/reply'>reply</a>
+      <form action='/posts/<%=@post.slug%>/reply'>
+        <input type='submit' value='reply'>
+      </form>
     </div>
   </div>
 
@@ -28,7 +30,7 @@
         <% if current_user == reply.user %>
           <form action='/posts/reply/<%=reply.slug%>' method='post'>
             <input type='hidden' name='_method' value='DELETE'>
-            <input type='submit' value="Delete">
+            <input type='submit' value="delete">
           </form>
         <% end %>
       </div>

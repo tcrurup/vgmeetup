@@ -117,13 +117,13 @@
     </div>
 
 <% #----------------------------POST BOARD----------------------------------# %>
-    <div class='post_board'>
-      <span id='section_title'><%= @user.username %>'s board</span>
 
-      <% @user.personal_board.posts.each do |post| %>
-        <% @post = post %>
-        <%=erb :'post/show'%>
-      <% end %>
+  <div class='post_board'>
+    <% @user.personal_board.posts.each do |post| %>
+      <% @post = post %>
+      <%=erb :'post/show'%>
+    <% end %>
+  </div>
 
     </div>
   </div>

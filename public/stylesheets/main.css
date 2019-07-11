@@ -69,38 +69,54 @@ div.page_section{
 }
 
 div.post{
-    padding: 20px;
+    display: inline-block;
+    padding: 10px 5px;
+    width: 98%;
 }
 
 div.post_avatar{
-  border-right: 2px solid black;
   display: inline-block;
-  text-align: center;
-  width: 18%;
+  font-weight: bold;
+  text-align: left;
+  width: 98%;
+}
+
+div.post_contents{
+  text-align: left;
 }
 
 div.post_board{
   background-color: white;
   border-radius: 20px;
   display: inline-block;
-  padding: 2vh 2vw 2vh 2vw;
   margin: 1vh 1vw;
-  width: 75%;
+  min-width: 320px;
+  padding: 2vh 2vw 2vh 2vw;
+  width: 90%;
   text-align: left;
 }
 
 div.post_message{
   width: 70%;
   display: inline-block;
+  text-align: left;
+  margin-left: 20px;
 }
 
 div.post_options{
-  width: 5%;
   display: inline-block;
+  text-align: right;
+  width: 4%;
+}
+
+div.post_options input{
+  font-size: 12px;
+  height: 20px;
 }
 
 div.reply{
- margin-left: 100px;
+ margin-left: 5vw;
+ font-size: 80%;
 }
 
 form.inline_button{
