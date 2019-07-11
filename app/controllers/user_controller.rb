@@ -68,6 +68,7 @@ class UserController < ApplicationController
   #-----DELETE-----
 
   get '/user/:slug/delete' do
+    ensure_logged_in
     @user = User.find_by_slug(params[:slug])
     erb :'user/delete'
   end

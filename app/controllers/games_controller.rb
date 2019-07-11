@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
 
   #-----Create-----
+
   get '/games/new' do
     erb :'games/new'
   end
