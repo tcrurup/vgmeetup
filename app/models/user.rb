@@ -24,6 +24,11 @@ class User < ActiveRecord::Base
     self.games << game
   end
 
+  def is_friends_with?(user)
+    #Returns true if both users are found within eachothers friends list
+    !!self.friends.find_by(user_id: user.id) && !!user.friends.find_by(user_id: self.id)
+  end
+
   def num_games_in_common_with(user)
     x = 0;
     self.games.each do |game|

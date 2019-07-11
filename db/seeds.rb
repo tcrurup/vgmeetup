@@ -40,6 +40,7 @@ lanoire.add_array_of_genres([genre_action, genre_adventure, genre_third_person_s
 
 tony.add_friend(cody)
 tony.add_friend(nathan)
+cody.add_friend(tony)
 
 nathan.add_friend(cody)
 
