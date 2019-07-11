@@ -11,27 +11,27 @@
 <div class='flex-container-horizontal'>
 
 <% #----------------------------ABOUT ME----------------------------------# %>
-    <div class='page_section'>
-      <span id='section_title'>About Me</span>
+  <div class='page_section'>
+    <span id='section_title'>About Me</span>
 
-      <table class='vertical_list'>
-        <tr>
-          <th>Username: </th>
-          <td><%=@user.username%></td>
-        </tr>
-        <tr>
-          <th>Email:</th>
-          <td><%=@user.email%></td>
-        </tr>
-        <tr>
-          <th>First Name:</th>
-          <td><%=@user.firstname.capitalize%></td>
-        </tr>
-        <tr>
-          <th>Last Name:</th>
-          <td><%=@user.lastname.capitalize%></td>
-        </tr>
-      </table>
+    <table class='vertical_list'>
+      <tr>
+        <th>Username: </th>
+        <td><%=@user.username%></td>
+      </tr>
+      <tr>
+        <th>Email:</th>
+        <td><%=@user.email%></td>
+      </tr>
+      <tr>
+        <th>First Name:</th>
+        <td><%=@user.firstname.capitalize%></td>
+      </tr>
+      <tr>
+        <th>Last Name:</th>
+        <td><%=@user.lastname.capitalize%></td>
+      </tr>
+    </table>
 
       <% if current_user != @user %>
         <% if current_user.has_pending_request_with?(@user) %>
@@ -51,6 +51,28 @@
       <% end %>
 
     </div>
+
+<% #----------------------------FRIENDS BOX----------------------------------# %>
+
+<div class='page_section'>
+  <span id='section_title'><%= @user.username %>'s friends</span>
+  <table>
+    <tr>
+      <th>Username</th>
+      <th># Games You<br>Have In Common</th>
+    </tr>
+    <% @user.friends.each do |friend| %>
+      <tr>
+        <td>
+          <%='(pending)' unless friend.is_friends_with?(@user)%>
+          <a href='/user/<%=friend.slug%>'> <%= friend.username %> </a>
+        </td>
+        <td><%= @user.num_games_in_common_with(friend) %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
 
 <% #----------------------------GAME COLLECTION----------------------------------# %>
 
@@ -92,27 +114,6 @@
           </tr>
         <% end %>
 
-      </table>
-    </div>
-
-<% #----------------------------FRIENDS BOX----------------------------------# %>
-
-    <div class='page_section'>
-      <span id='section_title'><%= @user.username %>'s friends</span>
-      <table>
-        <tr>
-          <th>Username</th>
-          <th># Games You<br>Have In Common</th>
-        </tr>
-        <% @user.friends.each do |friend| %>
-          <tr>
-            <td>
-              <%='(pending)' unless friend.is_friends_with?(@user)%>
-              <a href='/user/<%=friend.slug%>'> <%= friend.username %> </a>
-            </td>
-            <td><%= @user.num_games_in_common_with(friend) %></td>
-          </tr>
-        <% end %>
       </table>
     </div>
 
