@@ -1,0 +1,7 @@
+<div class='central_container'>
+  <span class='section_title'>Are you sure you want to delete the <%=@genre.name%> genre tag?</span>
+  <form action='/genres/<%=@genre.slug%>' method='post'>
+    <input type='hidden' name='_method' value="DELETE">
+    <input type='submit' value='DELETE'>
+  </form>
+</div>

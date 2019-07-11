@@ -46,7 +46,7 @@ class PostController < ApplicationController
   post "/posts/:slug/reply" do
     post = Post.find_by_slug(params[:slug])
     post.add_reply(params[:reply_content], current_user)
-    redirect "/posts/#{post.slug}/show"
+    redirect post.redirection_string
   end
 
   #-----Delete-----

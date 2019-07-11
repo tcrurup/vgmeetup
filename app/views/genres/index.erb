@@ -1,4 +1,9 @@
 <div class='page_section'>
+  <div id='flash_message'>
+    <% if flash.has?(:message) %>
+      <%= flash[:message] %>
+    <% end %>
+  </div>
   <% Genre.all.sort{ |a,b| a.name <=> b.name}.each do |genre| %>
     <form action='/genres/<%=genre.slug%>'>
       <input class='genre_tag' type='submit' value='<%=genre.name%>'>

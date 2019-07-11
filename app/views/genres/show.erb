@@ -1,4 +1,7 @@
 <div class='page_section'>
+  <form action='/genres/<%=@genre.slug%>/delete'>
+    <input type='submit' value='DELETE'>
+  </form>
   <span class='section_title'>Others Games Tagged With <%=@genre.name%></span>
   <table>
     <tr>
