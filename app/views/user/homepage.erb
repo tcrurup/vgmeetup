@@ -26,19 +26,19 @@
         </tr>
       </table>
 
-      <% if current_user.has_pending_request_with?(@user) %>
-        Friend Request Pending
-      <% elsif !current_user.is_friends_with?(@user)%>
-        <form action='/user/add_friend/<%=@user.id%>' method='post'>
-          <input type='submit' value='Add As Friend'>
+      <% if current_user != @user %>
+        <% if current_user.has_pending_request_with?(@user) %>
+          Friend Request Pending
+        <% elsif !current_user.is_friends_with?(@user)%>
+          <form action='/user/add_friend/<%=@user.id%>' method='post'>
+            <input type='submit' value='Add As Friend'>
+          </form>
+        <% end %>
+
+        <form action='/posts/new/<%= @user.slug %>'>
+          <input type='submit' value='Write On Board'>
         </form>
-      <% end %>
-
-      <form action='/posts/new/<%= @user.slug %>'>
-        <input type='submit' value='Write On Board'>
-      </form>
-
-      <% if @user == current_user %>
+      <% elsif @user == current_user %>
         <a href='/user/edit'>Edit Details</a>
         <a href='/user/edit'>Change Password</a>
       <% end %>
@@ -86,6 +86,8 @@
       </table>
     </div>
 
+<% #----------------------------FRIENDS BOX----------------------------------# %>
+
     <div class='page_section'>
       <span id='section_title'><%= @user.username %>'s friends</span>
       <table>
@@ -97,13 +99,15 @@
           <tr>
             <td>
               <%='(pending)' unless friend.is_friends_with?(@user)%>
-              <%= friend.username %>
+              <a href='/user/<%=friend.slug%>'> <%= friend.username %> </a>
             </td>
             <td><%= @user.num_games_in_common_with(friend) %></td>
           </tr>
         <% end %>
       </table>
     </div>
+
+<% #----------------------------POST BOARD----------------------------------# %>
 
     <div class='post_board'>
       <span id='section_title'><%= @user.username %>'s board</span>
