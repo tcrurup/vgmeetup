@@ -21,6 +21,7 @@ class UserController < ApplicationController
   end
 
   get '/user/edit' do
+    ensure_logged_in
     erb :'user/edit'
   end
 
@@ -36,11 +37,13 @@ class UserController < ApplicationController
   end
 
   get '/user/:slug' do
+    ensure_logged_in
     @user = User.find_by_slug(params[:slug])
     erb :'user/homepage'
   end
 
   get '/users' do
+    ensure_logged_in
     erb :'user/index'
   end
 
