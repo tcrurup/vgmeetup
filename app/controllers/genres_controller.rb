@@ -5,10 +5,12 @@ class GenresController < ApplicationController
 
   #-----Read-----
   get '/genres' do
+    ensure_logged_in
     erb :'genres/index'
   end
 
   get '/genres/:slug' do
+    ensure_logged_in
     @genre = Genre.find_by_slug(params[:slug])
     erb :'genres/show'
   end
@@ -20,6 +22,7 @@ class GenresController < ApplicationController
   #-----Delete-----
 
   get '/genres/:slug/delete' do
+    ensure_logged_in
     @genre = Genre.find_by_slug(params[:slug])
     erb :'genres/delete'
   end

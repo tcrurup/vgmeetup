@@ -3,6 +3,7 @@ class PostController < ApplicationController
   #-----Create-----
 
   get "/posts/new/:user_slug" do
+    ensure_logged_in
     @recipient = User.find_by_slug(params[:user_slug])
     if current_user.is_friends_with?(@recipient)
       erb :"post/new"
@@ -21,6 +22,7 @@ class PostController < ApplicationController
   #-----Read-----
 
   get "/posts/:slug/show" do
+    ensure_logged_in
     @post = Post.find_by_slug(params[:slug])
     erb :'post/show'
   end
@@ -28,6 +30,7 @@ class PostController < ApplicationController
   #-----Update-----
 
   get "/posts/:slug/edit" do
+    ensure_logged_in
     @post = Post.find_by_slug(params[:slug])
     erb :'post/edit'
   end
@@ -39,6 +42,7 @@ class PostController < ApplicationController
   end
 
   get "/posts/:slug/reply" do
+    ensure_logged_in
     @post = Post.find_by_slug(params[:slug])
     erb :'post/reply'
   end
@@ -52,6 +56,7 @@ class PostController < ApplicationController
   #-----Delete-----
 
   get "/posts/:slug/delete" do
+    ensure_logged_in
     @post = Post.find_by_slug(params[:slug])
     erb :'post/delete'
   end

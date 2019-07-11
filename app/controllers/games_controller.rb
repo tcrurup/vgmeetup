@@ -3,6 +3,7 @@ class GamesController < ApplicationController
   #-----Create-----
 
   get '/games/new' do
+    ensure_logged_in
     erb :'games/new'
   end
 
@@ -18,10 +19,12 @@ class GamesController < ApplicationController
   #-----Read-----
 
   get '/games' do
+    ensure_logged_in
     erb :"games/index"
   end
 
   get '/games/:slug' do
+    ensure_logged_in
     @game = Game.find_by_slug(params[:slug])
     erb :"games/show"
   end
@@ -29,6 +32,7 @@ class GamesController < ApplicationController
   #-----Update-----
 
   get '/games/:slug/edit' do
+    ensure_logged_in
     @game = Game.find_by_slug(params[:slug])
     erb :"games/edit"
   end
@@ -46,6 +50,7 @@ class GamesController < ApplicationController
   #-----Delete-----
 
   get '/games/:slug/delete' do
+    ensure_logged_in
     @game = Game.find_by_slug(params[:slug])
     erb :"games/delete"
   end
