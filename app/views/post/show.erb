@@ -1,0 +1,16 @@
+
+<div class='post_board'>
+  <div class='post'>
+    <div class='post_avatar'>
+      <%= @post.user.username %>
+    </div>
+    <div class='post_message'>
+      <%= @post.content %>
+    </div>
+    <div class='post_options'>
+      <% if current_user == @post.author %>
+        <a href='/posts/<%=@post.slug%>/edit'>edit</a>
+      <% end %>
+    </div>
+  </div>
+</div>

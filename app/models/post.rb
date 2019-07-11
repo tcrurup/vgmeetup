@@ -13,4 +13,5 @@ class Post < ActiveRecord::Base
   def author
     self.user
   end
+
 end

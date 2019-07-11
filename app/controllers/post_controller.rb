@@ -18,7 +18,14 @@ class PostController < ApplicationController
     redirect "/user/#{recipient.slug}"
   end
 
-  #-----Edit-----
+  #-----Read-----
+
+  get "/posts/:slug/show" do
+    @post = Post.find_by_slug(params[:slug])
+    erb :'post/show'
+  end
+
+  #-----Update-----
 
   get "/posts/:slug/edit" do
     @post = Post.find_by_slug(params[:slug])
@@ -28,8 +35,7 @@ class PostController < ApplicationController
   patch "/posts/:slug" do
     post = Post.find_by_slug(params[:slug])
     post.update(params[:post])
-
-    redirect
+    redirect "/posts/#{post.slug}/show"
   end
 
 end

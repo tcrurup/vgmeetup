@@ -7,8 +7,5 @@ class CommunityBoard < ActiveRecord::Base
     self.posts << Post.create(content: content)
   end
 
-  def slug
-
-  end
 
 end
