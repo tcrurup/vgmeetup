@@ -40,8 +40,12 @@ class UserController < ApplicationController
 
   get '/user/:slug/edit' do
     ensure_logged_in
-    @user = current_user
-    erb :'user/edit'
+    @user = User.find_by_slug(params[:slug])
+    if @user == current_user
+      erb :'user/edit'
+    else
+      flash_and_redirect("You can only edit your own profile", "/user/#{@user.slug}")
+    end
   end
 
   patch '/user' do
