@@ -16,7 +16,7 @@ class PostController < ApplicationController
   post "/posts/:user_slug" do
     recipient = User.find_by_slug(params[:user_slug])
     post = current_user.post_to_other_users_board(params[:post_content], recipient)
-    redirect post.redirection_string
+    redirect "/user/#{post.board.user.slug}"
   end
 
   #-----Read-----
@@ -38,7 +38,7 @@ class PostController < ApplicationController
   patch "/posts/:slug" do
     post = Post.find_by_slug(params[:slug])
     post.update(params[:post])
-    redirect "/posts/#{post.slug}/show"
+    redirect "/user/#{post.board.user.slug}"
   end
 
   get "/posts/:slug/reply" do
@@ -69,7 +69,7 @@ class PostController < ApplicationController
     reply = Reply.find_by_slug(params[:slug])
     parent_post = reply.post
     reply.destroy
-    redirect "/posts/#{parent_post.slug}/show"
+    redirect "/user/#{parent_post.board.user.slug}"
   end
 
 end
