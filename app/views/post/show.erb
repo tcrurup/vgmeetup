@@ -10,7 +10,9 @@
     <div class='post_options'>
 
       <% if current_user == @post.user %>
-        <a href='/posts/<%=@post.slug%>/edit'>edit</a>
+        <form action='/posts/<%=@post.slug%>/edit'>
+          <input type='submit' value='edit'>
+        </form>
       <% end %>
       <form action='/posts/<%=@post.slug%>/reply'>
         <input type='submit' value='reply'>
