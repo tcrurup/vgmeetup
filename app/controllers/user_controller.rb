@@ -38,8 +38,9 @@ class UserController < ApplicationController
 
   #-----UPDATE-----
 
-  get '/user/edit' do
+  get '/user/:slug/edit' do
     ensure_logged_in
+    @user = current_user
     erb :'user/edit'
   end
 

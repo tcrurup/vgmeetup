@@ -46,8 +46,7 @@
           <input type='submit' value='Write On Board'>
         </form>
       <% elsif @user == current_user %>
-        <a href='/user/edit'>Edit Details</a>
-        <a href='/user/edit'>Change Password</a>
+        <a href='/user/<%=@user.slug%>/edit'>Edit Details</a>
       <% end %>
 
     </div>
